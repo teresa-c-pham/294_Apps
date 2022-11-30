@@ -6,11 +6,116 @@
   <meta name="viewport" content="width=device-width">
   <title>replit</title>
   <link href="style.css" rel="stylesheet" type="text/css" />
+  <style>
+    div.screen {border: 5px black solid; height:80vh; display:none;}
+    #div1 {background-color: LightSalmon;}
+    #div2 {background-color: LightGreen;}
+    #div3 {background-color: LightSlateGray;}
+    #div4 {background-color: Plum;}
+  </style>
+
+  <!-- Minimal Set up for Material Components  -->
+  <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
+  <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+
+<!-- Material Icons from Google Fonts  -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 
 <body>
   Hello world!
-  <script src="script.js"></script>
+  <div id="div1" class="screen"></div>
+  <div id="div2" class="screen"></div>
+  <div id="div3" class="screen"></div>
+  <div id="div4" class="screen"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/material-components-web/14.0.0/material-components-web.min.js"></script>
+
+  
+<!--  Top App Bar  -->
+
+<!--  Navigation Drawer  -->
+<!-- <aside class="mdc-drawer mdc-drawer--modal">
+  <div class="mdc-drawer__content">
+    <nav class="mdc-list">
+      <a class="mdc-list-item mdc-list-item--activated" href="#" aria-current="page" tabindex="0">
+        <span class="mdc-list-item__ripple"></span>
+        <i class="material-icons mdc-list-item__graphic" aria-hidden="true">inbox</i>
+        <span class="mdc-list-item__text">Inbox</span>
+      </a>
+      <a class="mdc-list-item" href="#">
+        <span class="mdc-list-item__ripple"></span>
+        <i class="material-icons mdc-list-item__graphic" aria-hidden="true">send</i>
+        <span class="mdc-list-item__text">Outgoing</span>
+      </a>
+      <a class="mdc-list-item" href="#">
+        <span class="mdc-list-item__ripple"></span>
+        <i class="material-icons mdc-list-item__graphic" aria-hidden="true">drafts</i>
+        <span class="mdc-list-item__text">Drafts</span>
+      </a>
+    </nav>
+  </div>
+</aside>
+
+<div class="mdc-drawer-scrim"></div>
+<div>Main Content</div> -->
+  <header class="mdc-top-app-bar app-bar" id="app-bar">
+    <div class="mdc-top-app-bar__row">
+      <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+        <button class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button">menu</button>
+        <span class="mdc-top-app-bar__title">Dismissible Drawer</span>
+      </section>
+    </div>
+  </header>
+  <aside class="mdc-drawer mdc-drawer--dismissible mdc-top-app-bar--fixed-adjust">
+    <div class="mdc-drawer__content">
+      <div class="mdc-list">
+        <a class="mdc-list-item mdc-list-item--activated" href="#" aria-current="page">
+          <span class="mdc-list-item__ripple"></span>
+          <i class="material-icons mdc-list-item__graphic" aria-hidden="true">inbox</i>
+          <span class="mdc-list-item__text">Inbox</span>
+        </a>
+        <a class="mdc-list-item" href="#">
+          <span class="mdc-list-item__ripple"></span>
+          <i class="material-icons mdc-list-item__graphic" aria-hidden="true">send</i>
+          <span class="mdc-list-item__text">Outgoing</span>
+        </a>
+        <a class="mdc-list-item" href="#">
+          <span class="mdc-list-item__ripple"></span>
+          <i class="material-icons mdc-list-item__graphic" aria-hidden="true">drafts</i>
+          <span class="mdc-list-item__text">Drafts</span>
+        </a>
+      </div>
+    </div>
+  </aside>
+
+  <div class="mdc-drawer-app-content mdc-top-app-bar--fixed-adjust">
+    <main class="main-content" id="main-content">
+      App Content
+    </main>
+  </div>
+<!--  Add Script for navigation to different screens  -->
+<script>
+  // Instantiate MDC Drawer
+  const listEl = document.querySelector('.mdc-drawer');
+  const drawer = mdc.drawer.MDCDrawer.attachTo(listEl);
+
+  // Instantiate MDC Top App Bar
+  const topAppBarEl = document.querySelector('.mdc-top-app-bar');
+  const topAppBar = new mdc.topAppBar.MDCTopAppBar.attachTo(topAppBarEl);
+  
+  const mainContentEl = document.querySelector('.main-content');
+  topAppBar.setScrollTarget(mainContentEl);
+  topAppBar.listen('MDCTopAppBar:nav', () => {
+    drawer.open = !drawer.open;
+  });
+
+  listEl.addEventListener('click', (event) => {
+    drawer.open = false;
+  });
+
+</script>
+  
+<script src="script.js"></script>
 
  <!--
   This script places a badge on your repl's full-browser view back to your repl's cover
