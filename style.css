@@ -2,3 +2,16 @@ html, body {
   height: 100%;
   width: 100%;
 }
+
+.mdc-top-app-bar {
+  z-index: 7;
+}
+
+.app-bar {
+  position: absolute;
+}
+
+.main-content {
+  overflow: auto;
+  height: 100%;
+}

@@ -7,13 +7,13 @@
   <title>replit</title>
   <link href="style.css" rel="stylesheet" type="text/css" />
   <style>
-    div.screen {border: 5px black solid; height:80vh; display:none;}
-    #div1 {background-color: LightSalmon;}
+    div.screen {height:100vh; display:none;}
+    #div1 {background-color: LightBlue;}
     #div2 {background-color: LightGreen;}
     #div3 {background-color: LightSlateGray;}
     #div4 {background-color: Plum;}
   </style>
-
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
   <!-- Minimal Set up for Material Components  -->
   <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
   <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
@@ -23,41 +23,9 @@
 </head>
 
 <body>
-  Hello world!
-  <div id="div1" class="screen"></div>
-  <div id="div2" class="screen"></div>
-  <div id="div3" class="screen"></div>
-  <div id="div4" class="screen"></div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/material-components-web/14.0.0/material-components-web.min.js"></script>
 
-  
-<!--  Top App Bar  -->
-
-<!--  Navigation Drawer  -->
-<!-- <aside class="mdc-drawer mdc-drawer--modal">
-  <div class="mdc-drawer__content">
-    <nav class="mdc-list">
-      <a class="mdc-list-item mdc-list-item--activated" href="#" aria-current="page" tabindex="0">
-        <span class="mdc-list-item__ripple"></span>
-        <i class="material-icons mdc-list-item__graphic" aria-hidden="true">inbox</i>
-        <span class="mdc-list-item__text">Inbox</span>
-      </a>
-      <a class="mdc-list-item" href="#">
-        <span class="mdc-list-item__ripple"></span>
-        <i class="material-icons mdc-list-item__graphic" aria-hidden="true">send</i>
-        <span class="mdc-list-item__text">Outgoing</span>
-      </a>
-      <a class="mdc-list-item" href="#">
-        <span class="mdc-list-item__ripple"></span>
-        <i class="material-icons mdc-list-item__graphic" aria-hidden="true">drafts</i>
-        <span class="mdc-list-item__text">Drafts</span>
-      </a>
-    </nav>
-  </div>
-</aside>
-
-<div class="mdc-drawer-scrim"></div>
-<div>Main Content</div> -->
+ 
   <header class="mdc-top-app-bar app-bar" id="app-bar">
     <div class="mdc-top-app-bar__row">
       <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
@@ -69,20 +37,25 @@
   <aside class="mdc-drawer mdc-drawer--dismissible mdc-top-app-bar--fixed-adjust">
     <div class="mdc-drawer__content">
       <div class="mdc-list">
-        <a class="mdc-list-item mdc-list-item--activated" href="#" aria-current="page">
+        <a class="mdc-list-item" href="#" id="first">
           <span class="mdc-list-item__ripple"></span>
-          <i class="material-icons mdc-list-item__graphic" aria-hidden="true">inbox</i>
-          <span class="mdc-list-item__text">Inbox</span>
+          <i class="material-icons mdc-list-item__graphic" id="pg1">square</i>
+          <span class="mdc-list-item__text" id="text1">API 1</span>
         </a>
-        <a class="mdc-list-item" href="#">
+        <a class="mdc-list-item" href="#" id="second">
           <span class="mdc-list-item__ripple"></span>
-          <i class="material-icons mdc-list-item__graphic" aria-hidden="true">send</i>
-          <span class="mdc-list-item__text">Outgoing</span>
+          <i class="material-icons mdc-list-item__graphic" id="pg2">send</i>
+          <span class="mdc-list-item__text" id="text2">API 2</span>
         </a>
-        <a class="mdc-list-item" href="#">
+        <a class="mdc-list-item" href="#" id="third">
           <span class="mdc-list-item__ripple"></span>
-          <i class="material-icons mdc-list-item__graphic" aria-hidden="true">drafts</i>
-          <span class="mdc-list-item__text">Drafts</span>
+          <i class="material-icons mdc-list-item__graphic" id="pg3">list</i>
+          <span class="mdc-list-item__text" id="text3">Database</span>
+        </a>
+        <a class="mdc-list-item" href="#" id="fourth">
+          <span class="mdc-list-item__ripple"></span>
+          <i class="material-icons mdc-list-item__graphic" id="pg4">map</i>
+          <span class="mdc-list-item__text" id="text4">Map</span>
         </a>
       </div>
     </div>
@@ -90,37 +63,53 @@
 
   <div class="mdc-drawer-app-content mdc-top-app-bar--fixed-adjust">
     <main class="main-content" id="main-content">
-      App Content
+<!--       <a href="" data-screen="div1"></a>
+      <a href="" data-screen="div2"></a>
+      <a href="" data-screen="div3"></a>
+      <a href="" data-screen="div4"></a> -->
+      <div id="div1" class="screen">
+        <h1>Chicago Data Portal API</h1>
+        <h3>Search for Towed Car Data on the City of Chicago Portal Site!</h3>
+        <img src="https://cdn.britannica.com/59/94459-050-DBA42467/Skyline-Chicago.jpg" alt="Chicago"  height="500" width="80%"/>
+        <br>
+        Search Form:
+        <br>
+        <form>
+          <label for="color">Color of Vehicle:
+        </form>
+        <input type="text" id="color">
+<!--         <script src="apiChicago.js"></script> -->
+        
+      </div>
+      <div id="div2" class="screen">
+        Screen to filter data with button click, fetches data API 2
+      </div>
+    <!--  Add Two more divs  -->
+      <div id="div3" class="screen">
+        Screen to list results of the data filter: list of clickable items?
+      </div>
+      <div id="div4" class="screen">
+        Map visualization
+        <div id="map"></div>
+
+        <!--  Screen for Visualization  -->
+        <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB6bMxtQf6bwl07yZDhM2wYD-3Xe-hxDmw&callback=initMap&v=weekly"
+      defer></script>
+        <script src="visualization.js"></script>
+      </div>
     </main>
   </div>
-<!--  Add Script for navigation to different screens  -->
-<script>
-  // Instantiate MDC Drawer
-  const listEl = document.querySelector('.mdc-drawer');
-  const drawer = mdc.drawer.MDCDrawer.attachTo(listEl);
-
-  // Instantiate MDC Top App Bar
-  const topAppBarEl = document.querySelector('.mdc-top-app-bar');
-  const topAppBar = new mdc.topAppBar.MDCTopAppBar.attachTo(topAppBarEl);
-  
-  const mainContentEl = document.querySelector('.main-content');
-  topAppBar.setScrollTarget(mainContentEl);
-  topAppBar.listen('MDCTopAppBar:nav', () => {
-    drawer.open = !drawer.open;
-  });
-
-  listEl.addEventListener('click', (event) => {
-    drawer.open = false;
-  });
-
-</script>
-  
+<!--  Add Script for navigation to different screens  -->  
 <script src="script.js"></script>
+
+
+
 
  <!--
   This script places a badge on your repl's full-browser view back to your repl's cover
   page. Try various colors for the theme: dark, light, red, orange, yellow, lime, green,
-  teal, blue, blurple, magenta, pink!
+  teal, blue, purple, magenta, pink!
   -->
   <script src="https://replit.com/public/js/replit-badge.js" theme="blue" defer></script> 
 </body>
