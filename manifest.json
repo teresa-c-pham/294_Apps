@@ -1,0 +1,14 @@
+{
+  "name": "Dev'Coffee",
+  "short_name": "DevCoffee",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#fdfdfd",
+  "theme_color": "#db4938",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "https://cdn.britannica.com/59/94459-050-DBA42467/Skyline-Chicago.jpg", "sizes": "1000x1000"
+    }
+  ]
+}

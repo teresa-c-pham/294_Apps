@@ -15,3 +15,8 @@ html, body {
   overflow: auto;
   height: 100%;
 }
+
+label {
+  display: inline-block;
+  width: 50px;
+}

@@ -10,8 +10,11 @@
     div.screen {height:100vh; display:none;}
     #div1 {background-color: LightBlue;}
     #div2 {background-color: LightGreen;}
-    #div3 {background-color: LightSlateGray;}
-    #div4 {background-color: Plum;}
+    #div3 {background-image: url("https://preview.redd.it/emlc9fibbff11.jpg?auto=webp&s=d63b6e87307c25b6fadb41d34d36b09583c99171");
+          background-size: 100% 100%;
+          background-repeat: repeat-y;
+          }
+    #div4 {background-color: lightslategray;}
   </style>
   <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
   <!-- Minimal Set up for Material Components  -->
@@ -20,6 +23,23 @@
 
 <!-- Material Icons from Google Fonts  -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+<!-- Dexie Library   -->
+  <script src="https://unpkg.com/dexie/dist/dexie.js"></script>
+
+<!--  Add manifest.json info into HTML File    -->
+  <link rel="manifest" href="manifest.json" />
+      <!-- ios support -->
+    <link rel="apple-touch-icon" href="images/icons/icon-72x72.png" />
+    <link rel="apple-touch-icon" href="images/icons/icon-96x96.png" />
+    <link rel="apple-touch-icon" href="images/icons/icon-128x128.png" />
+    <link rel="apple-touch-icon" href="images/icons/icon-144x144.png" />
+    <link rel="apple-touch-icon" href="images/icons/icon-152x152.png" />
+    <link rel="apple-touch-icon" href="images/icons/icon-192x192.png" />
+    <link rel="apple-touch-icon" href="images/icons/icon-384x384.png" />
+    <link rel="apple-touch-icon" href="images/icons/icon-512x512.png" />
+    <meta name="apple-mobile-web-app-status-bar" content="#db4938" />
+    <meta name="theme-color" content="#db4938" />
 </head>
 
 <body>
@@ -54,8 +74,8 @@
         </a>
         <a class="mdc-list-item" href="#" id="fourth">
           <span class="mdc-list-item__ripple"></span>
-          <i class="material-icons mdc-list-item__graphic" id="pg4">map</i>
-          <span class="mdc-list-item__text" id="text4">Map</span>
+          <i class="material-icons mdc-list-item__graphic" id="pg4">radio</i>
+          <span class="mdc-list-item__text" id="text4">Mugshot</span>
         </a>
       </div>
     </div>
@@ -72,31 +92,54 @@
         <h3>Search for Towed Car Data on the City of Chicago Portal Site!</h3>
         <img src="https://cdn.britannica.com/59/94459-050-DBA42467/Skyline-Chicago.jpg" alt="Chicago"  height="500" width="80%"/>
         <br>
-        Search Form:
+        <h3>Search Vehicle by Element</h3>
         <br>
-        <form>
-          <label for="color">Color of Vehicle:
-        </form>
+        <label for="color">Color</label>
         <input type="text" id="color">
-<!--         <script src="apiChicago.js"></script> -->
+        <button id="colorVehicle">Search</button>
+        <br><br>
+        <label for="style">Style</label>
+        <input type="text" id="style">
+        <button id="colorVehicle">Search</button>
+        <br><br>
+        <label for="state">State</label>
+        <input type="text" id="state">
+        <button id="colorVehicle">Search</button>
+        <br><br>
+        <label for="make">Make</label>
+        <input type="text" id="make">
+        <button id="colorVehicle">Search</button>
+        <br> 
+        <script src="databaseChicago.js"></script>
+        <script src="apiChicago.js"></script>
         
       </div>
       <div id="div2" class="screen">
         Screen to filter data with button click, fetches data API 2
       </div>
     <!--  Add Two more divs  -->
-      <div id="div3" class="screen">
-        Screen to list results of the data filter: list of clickable items?
+      <div id="div3" class="screen" >
+        <ul class="mdc-list">
+        <li class="mdc-list-item" id="query">
+          <span class="mdc-list-item__ripple"></span>
+          <span class="mdc-list-item__text"></span>
+        </li>
+      </ul>
+        <p id="content">Hello</p>
       </div>
       <div id="div4" class="screen">
-        Map visualization
-        <div id="map"></div>
-
-        <!--  Screen for Visualization  -->
-        <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB6bMxtQf6bwl07yZDhM2wYD-3Xe-hxDmw&callback=initMap&v=weekly"
-      defer></script>
-        <script src="visualization.js"></script>
+        <div class="camera">
+        <video id="video">Video stream not available.</video>
+        <br>
+        <button id="startbutton">Take photo</button>
+      </div>
+      <!--  Add video element b/c the var video is declared and set equal to the querySelector  -->
+    
+      <canvas id="canvas"> </canvas>
+      <div class="output">
+        <img id="photo" alt="The screen capture will appear in this box." />
+      </div>
+      <script src="visualization.js"></script>
       </div>
     </main>
   </div>

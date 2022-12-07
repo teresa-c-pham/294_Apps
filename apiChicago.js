@@ -2,36 +2,20 @@ let api = "https://data.cityofchicago.org/resource/ygr5-vcbg.json";
 
 
 // Add Button and Click Event Handler
-let btn = document.createElement("button");
-btn.id="search";
-btn.innerText = "Search";
+let btns = document.querySelectorAll("button");
 
-btn.addEventListener("click", (event) => {
+btns.forEach( btn => { btn.addEventListener("click", (event) => {
+  console.log(event.target.id);
+  
+  // Hide All Screens
+  document.querySelectorAll("div.screen").forEach( screen => screen.style.display = "none");
+  document.querySelector("#div3").style.display = "block";
 
-  // Read input value and construct URL
-  let value = document.querySelector("input#color").value;
-  let url = api + "?color=" + value; 
-
-  // Fetch URL
-  fetch(url)
-    .then( response => { return response.json()})
-    .then( data => {
-      console.log(data);
-
-      // Output some information of each record
-      data.forEach( record => {
-        console.log(record);
-
-        let car = document.createElement("h2");
-        let content = document.createElement("p");
-
-        car.innerText = record.plate + ", " + record.make;
-        content.innerText = "Inventory Number: " + record.inventory_number + "\n" + record.towed_to_address + ", " + record.state;
-
-        content.append(car);
-        document.body.append(content);
-      })
-    })
-  })
-
-document.body.append(btn);
+  if (event.target.id == "colorVehicle") {
+    let value = document.querySelector("input#color").value;
+      let url = api + "?color=" + value; 
+      
+      let database = new ChicagoDB(url);
+  }
+  });
+});
