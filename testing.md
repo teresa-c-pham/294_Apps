@@ -2,16 +2,17 @@
 
 ## Testing City of Chicago API
 ### Pros
-* The buttons for the color, style, state, and make work well. I like the pictures and color choice for the background.
-* The background is nice.
+* The buttons for the color, style, state, and make work well. I like the pictures and color choice for the background. The search function is clear to see and the entry searches link up to what I'm searching for.
+* The background is nice. There are many search options.
 
 ### Cons
 * The first query output fills the page, but at the end of the data screen, the output falls off the screen and there is just a white background. When multiple queries are done, the list only appends and doesn't remove the previous query results.
 * The queries are hard to see because the background is too bold. The text in the first screen is a little small and the picture sticks out too much.
-* 
+  
 ### Suggestions
 * Add functionality to update the list and remove previous query
 * Make the background a bit lighter to see the query entries easier
+* Add examples for users to search up in the API
 
 
 ## Testing New York Times API
@@ -25,6 +26,8 @@
 
 ### Suggestions
 * Use a solid background to see queries easier
+* Add additional search options for users who don't know much about articles
+
 ## Visualization
 ### Pros
 * The camera asks for permission before functioning. The camera is very clear and captures the image well.
