@@ -22,19 +22,33 @@ class ChicagoDB {
     fetch(api)
     .then((response) => { return response.json()})
     .then((data) => {
+      // Clear current results in Div
+      let div = document.getElementById("div3");
+      let listEntries = document.getElementById("listDB");
+      let cloneList = listEntries.cloneNode(true);
+
+      listEntries.remove();
+      const elements = div.querySelectorAll(".mdc-list-item");
+      elements.forEach(element => {
+        element.remove();
+      });
+      
       data.forEach( record => {
-      let item = document.querySelector(".mdc-list-item#query").cloneNode(true);
+        // console.log(div);
+        
+      let item = cloneList.querySelector(".mdc-list-item#query").cloneNode(true);
       let update = item.querySelector("span.mdc-list-item__text");
         let result = {inventory_number: record.inventory_number, style: record.style, color: record.color,
                       state: record.state, make: record.make};
         this.db.notes.add(result);
 
-        console.log(result);
+        // console.log(result);
         // Update results on screen
         update.innerHTML = update.innerHTML + "\n" + JSON.stringify(result);
-        let div = document.getElementById("div3");
-        div.appendChild(item);
+
+        cloneList.appendChild(item);
       });
+      div.appendChild(cloneList);
     });
   }
 }

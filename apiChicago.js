@@ -10,12 +10,21 @@ btns.forEach( btn => { btn.addEventListener("click", (event) => {
   // Hide All Screens
   document.querySelectorAll("div.screen").forEach( screen => screen.style.display = "none");
   document.querySelector("#div3").style.display = "block";
-
+  let url = api;
   if (event.target.id == "colorVehicle") {
     let value = document.querySelector("input#color").value;
-      let url = api + "?color=" + value; 
-      
-      let database = new ChicagoDB(url);
+      url = api + "?color=" + value; 
+  } else if (event.target.id == "styleVehicle") {
+    let value = document.querySelector("input#style").value;
+      url = api + "?style=" + value; 
+  } else if (event.target.id == "stateVehicle") {
+    let value = document.querySelector("input#state").value;
+      url = api + "?state=" + value; 
+  } else if (event.target.id == "makeVehicle") {
+    let value = document.querySelector("input#make").value;
+      url = api + "?make=" + value; 
   }
+
+  let database = new ChicagoDB(url);
   });
 });
