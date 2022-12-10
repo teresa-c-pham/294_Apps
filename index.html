@@ -9,7 +9,9 @@
   <style>
     div.screen {height:100vh; display:none;}
     #div1 {background-color: LightBlue;}
-    #div2 {background-color: LightGreen;}
+    #div2 {background-image: url("https://media.istockphoto.com/id/1142220780/photo/close-up-of-the-statue-of-liberty-in-new-york-usa-blue-sky-background-with-copy-space.jpg?s=612x612&w=0&k=20&c=55czVn2LptPZNQVr3_EXxz0DngqarNE3tjNJKkagV3E=");
+          background-size: 100% 100%;
+          background-repeat:no-repeat;}
     #div3 {background-image: url("https://preview.redd.it/emlc9fibbff11.jpg?auto=webp&s=d63b6e87307c25b6fadb41d34d36b09583c99171");
           background-size: 100% 100%;
           background-repeat: repeat-y;
@@ -115,7 +117,20 @@
         
       </div>
       <div id="div2" class="screen">
-        Screen to filter data with button click, fetches data API 2
+        <img src="http://www.wellesleyfreelibrary.org/wp-content/uploads/2018/06/NYT-wordmark.png" alt="New York Times"  height="75" style="background-color:white;"/>
+        <h1>NY Times Data Portal API</h1>
+        <h3>Search for Various Articles on the New York Times Site!</h3>
+        
+        <br>
+        <h3>Search Vehicle by Keyword</h3>
+        <br>
+        <label for="entry">Query</label>
+        <input type="text" id="entry">
+        <button id="entryArticle">Search</button>
+        <br><br>
+        <script src="databaseNY.js"></script>
+        <script src="apiNY.js"></script>
+        
       </div>
     <!--  Add Two more divs  -->
       <div id="div3" class="screen" >
